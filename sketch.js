@@ -4,8 +4,9 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
-var box1;
+var box1,box2,box3,box4,box5,box6,box7,box8,box9,box10,box11,box12,box13,box14,box15,box16,box17,box18,box19;
 var bird, slingshot;
+var ground,ground2,platform;
 
 function preload() {
     bgimg = loadImage("sprites/bg.png");
@@ -16,9 +17,11 @@ function setup(){
     var canvas = createCanvas(1200,400);
     engine = Engine.create();
     world = engine.world;
-
+    platform = new Ground(150, 305, 300, 170);
     ground = new Ground(600,395,1200,10);
     ground2 = new Ground(900,170,200,10);
+    
+
 
     box1 = new Box(500,320,50,50);
     box2 = new Box(550,320,50,50);
@@ -43,13 +46,13 @@ function setup(){
     
     bird = new Bird(200,50);
 
-    slingshot = new SlingShot(bird.body,{x:150, y:180});
+    slingshot = new SlingShot(bird.body,{x:200, y:50});
 }
 
 function draw(){
-    background(bgimg);
+    background('white');
     Engine.update(engine);
-
+platform.display();
     ground.display();
     ground2.display();
 
